@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("BackUpDb")]
+[assembly: AssemblyTitle("sqlBackup")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("BackUpDb")]
+[assembly: AssemblyProduct("sqlBackup")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6d8aa94a-55ee-4e40-8be2-89248256dc6f")]
+[assembly: Guid("825fcb56-89af-453f-af4e-96d0ea0260e8")]
 
 // Version information for an assembly consists of the following four values:
 //

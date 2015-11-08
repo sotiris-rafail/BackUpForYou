@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BackUpDb.Properties
+namespace sqlBackup.Properties
 {
 
 
