@@ -41,12 +41,7 @@ namespace BackUpDb
                 if (passwordtextbox.Text != "")
                 {// prepei na dwsei pass
                     conser.setPassword(passwordtextbox.Text);
-                }
-                else
-                {
-                    MessageBox.Show("Insert password to Continue");//msgbox an den dwsei pass
-                }
-                     
+                }                     
             }
             try
             {
@@ -57,7 +52,7 @@ namespace BackUpDb
                 MessageBox.Show(ex.Message);
             }
             if (tcpclnt.Connected) {
-                Form2 forma2 = new Form2();
+                Form2 forma2 = new Form2(this);
                 this.Visible = false;
                 forma2.Visible = true;
             }
@@ -65,7 +60,7 @@ namespace BackUpDb
             {
                 porttextbox.Text = "3306";
                 hostnametextbox.Text = null;
-                    porttextbox.Text = null;
+                porttextbox.Text = null;
                 usernametextbox.Text = null;
                 passwordtextbox.Text = null;
             }
@@ -109,5 +104,22 @@ namespace BackUpDb
                 this.Visible = false;
             }
          }
+        public bool getConnection//stelnei sthn forma 2 an to connection me ton server exei ginei
+        {
+            get { return tcpclnt.Connected; }
+        }
+        public string getHostname
+        {
+            get { return hostnametextbox.Text; }
+        }
+        public string getUsername
+        {
+            get { return usernametextbox.Text; }
+        }
+        public string getPassword
+        {
+            get { return passwordtextbox.Text; }
+        }
+        
     }
 }
