@@ -110,7 +110,6 @@
             this.hostnametextbox.Name = "hostnametextbox";
             this.hostnametextbox.Size = new System.Drawing.Size(126, 20);
             this.hostnametextbox.TabIndex = 6;
-            this.hostnametextbox.Text = "127.0.0.1";
             // 
             // usernametextbox
             // 
@@ -118,7 +117,6 @@
             this.usernametextbox.Name = "usernametextbox";
             this.usernametextbox.Size = new System.Drawing.Size(126, 20);
             this.usernametextbox.TabIndex = 7;
-            this.usernametextbox.Text = "root";
             // 
             // passwordtextbox
             // 
@@ -219,6 +217,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Back Up For You";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
