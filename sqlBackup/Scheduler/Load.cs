@@ -7,6 +7,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Collections.Generic;
 namespace BackUpDb
 {
     class Load
@@ -15,9 +16,13 @@ namespace BackUpDb
         private String port;
         private String username;
         private String password;
+        private String ftpusername;
+        private String ftppassword;
+        private List<String> dbBackUp = new List<string>();
         StringBuilder stringsave = new StringBuilder();
         public Load(/*String hostname, String port, String username, String password*/)
         {
+            
             //setHostname(hostname, port);
             //setUsername(username);
             //setPassword(password);
@@ -59,11 +64,35 @@ namespace BackUpDb
 
             return this.password;
         }
+        public void setFtpusername(String ftpusername)
+        {
+            this.ftpusername = username;
+        }
+        public void setFtppassword(String ftppassworde)
+        {
+            this.ftppassword = ftppassworde;
+        }
+        public String getFtpusername()
+        {
+            return this.ftpusername;
+        }
+        public String getFtppassworde()
+        {
+            return this.ftppassword;
+        }
+        public void setbackup(String backname)
+        {
+            this.dbBackUp.Add(backname);
+        }
+        public String[] getbackup()
+        {
+            return this.dbBackUp.ToArray();
+        }
         override
         public String ToString()
         {
             return Convert.ToString(stringsave);
-        }
+        } 
         TcpClient tcpclnt = new TcpClient();
         public void LoadFromFile()
         {
@@ -80,6 +109,16 @@ namespace BackUpDb
                 setHostname(readfromLoad.ReadLine(), readfromLoad.ReadLine());
                 setUsername(readfromLoad.ReadLine());
                 setPassword(readfromLoad.ReadLine());
+                //setFtpHostname(readfromLoad.ReadLine());
+                setFtpusername(readfromLoad.ReadLine());
+                setFtppassword(readfromLoad.ReadLine());
+                int i = 0;
+                
+                do {
+                    setbackup(readfromLoad.ReadLine());
+                    i++;
+                        } while (!(readfromLoad.EndOfStream));
+            
                 tcpclnt.Connect(this.hostname, Convert.ToInt32(this.port));
             }catch(Exception ex)
             {
