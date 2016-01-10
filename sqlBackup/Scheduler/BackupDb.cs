@@ -117,7 +117,7 @@ namespace sqlBackup
                     // zip the backup subfolder 
                     using (ZipFile zip = new ZipFile())
                     {
-                        //zip.UseUnicodeAsNecessary = true;
+                        zip.UseUnicodeAsNecessary = true;
                         zip.AddDirectory(backup_subfolder);
                         zip.CompressionLevel = Ionic.Zlib.CompressionLevel.BestCompression;
                         zip.Comment = "This zip was created at " + System.DateTime.Now.ToString("G");

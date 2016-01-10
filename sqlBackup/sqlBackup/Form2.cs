@@ -407,7 +407,7 @@ namespace BackUpDb
                 }
                 else
                 {
-                    if(connectForm.getConnection)
+                    if (connectForm.getConnection)
                     {
                         uploadToFTP = false;
                         backupDB = new BackupDb(connectForm.getHostname, connectForm.getUsername, connectForm.getPassword, dbForBackup, local_path);
