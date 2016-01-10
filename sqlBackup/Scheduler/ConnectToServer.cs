@@ -10,7 +10,7 @@ namespace BackUpDb
     {
         StringBuilder connectstring = new StringBuilder();
         private String hostname = null;
-        private String databasename = null;
+       // private String databasename = null;
         private String username = null;
         private String password = null;
         private String port = null;
