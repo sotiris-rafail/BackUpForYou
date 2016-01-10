@@ -7,7 +7,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
-
+using System.Collections.Generic;
 using sqlBackup;
 namespace BackUpDb
 {
