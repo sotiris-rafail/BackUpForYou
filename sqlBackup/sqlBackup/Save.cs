@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
-
+using sqlBackup;
 
 namespace BackUpDb
 {
@@ -22,6 +22,7 @@ namespace BackUpDb
         private String[] dbbase;
         private String mail;
         private TimeSpan time;
+        private String LogFileString;
         StringBuilder stringsave = new StringBuilder();
         public Save(String hostname, String port,String username,String password)
         {
@@ -41,6 +42,10 @@ namespace BackUpDb
             this.ftppass = ftppass;
             this.dbbase = dbbase;
             this.mail = mail;
+        }
+        public Save(String LogFileString)
+        {
+            this.LogFileString = LogFileString;
         }
         public void setHostname(String hostname, String port)
         {
@@ -94,7 +99,7 @@ namespace BackUpDb
                 if (result == DialogResult.OK)
                 {
                     String getpath = folder.SelectedPath;
-                    Console.WriteLine(getpath);
+                    
                     
                     folderpath.Append(getpath + "\\" + getHostname() + ".txt");//onoma tou arxeiou pou tha ginei to save
                     StreamWriter writter = null;
@@ -121,7 +126,7 @@ namespace BackUpDb
                     }
                     if (flag2)//an ginoun ola swsta uparxei den euparxei to arxeio emfanizw ena messagebox gia na to gnwrizei o xrhsths
                     {
-                        MessageBox.Show("ΤΟ αρχείο αποθηκεύτηκε :" + Convert.ToString(folderpath));
+                       
                     }
                 }
             }
@@ -146,6 +151,7 @@ namespace BackUpDb
         {
             path += "\\"+getHostname()+".txt";
             StreamWriter ScheduleFile = null;
+            Console.WriteLine(path);
             if (File.Exists(Convert.ToString(path)))
             {//elenxo an to arxeio uparxei
                 ScheduleFile = new StreamWriter(Convert.ToString(path)); //antikeimeno gia na grapsw sto arxeio to opio kai ftiaxnw
@@ -182,6 +188,27 @@ namespace BackUpDb
                     ScheduleFile.WriteLine(this.dbbase[i]);
                 }
                 ScheduleFile.Close();
+            }
+        }
+
+        public void logFile(String path)
+        {
+            
+            
+            StreamWriter LogFile = null;
+            if(File.Exists(Convert.ToString(path)))
+            {
+                
+                LogFile = new StreamWriter(Convert.ToString(path),true);
+                LogFile.WriteLine(this.LogFileString);
+                LogFile.Close();
+                
+            } else
+            {
+
+                LogFile = new StreamWriter(Convert.ToString(path));
+                LogFile.WriteLine(this.LogFileString);
+                LogFile.Close();
             }
         }
     }
